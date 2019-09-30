@@ -16,6 +16,20 @@ class App extends React.Component {
     }
   }
 
+
+
+  addTask = taskName => {
+    const newTask = {
+      name: taskName,
+      id: Date.now(),
+      completed: false
+    };
+    // console.log(this);
+    this.setState({
+      task: [...this.state.task, newTask]
+    });
+  };
+
   toggleComplete = id => {
     this.setState({
       task: this.state.task.map(item => {
@@ -30,18 +44,6 @@ class App extends React.Component {
       })
     })
   }
-
-  addTask = taskName => {
-    const newTask = {
-      name: taskName,
-      id: Date.now(),
-      completed: false
-    };
-    // console.log(this);
-    this.setState({
-      task: [...this.state.task, newTask]
-    });
-  };
 
   clearComplete = () => {
     this.setState({
